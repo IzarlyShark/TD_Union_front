@@ -1,0 +1,28 @@
+.container{
+    padding: 20px 20px 40px 20px;
+    min-height: 400px;
+}
+
+.select__container{
+    display: flex;
+    flex-direction: row;    
+    gap: 20px;
+}
+
+.servise__content{
+    margin-top: 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: 1s;
+}
+.servise__content_name{
+
+}
+.servise__content_description{
+    margin-top: 10px;
+    max-width: 80%;
+}
+
+.active{
+    max-height: 100%;
+}

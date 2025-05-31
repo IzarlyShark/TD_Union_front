@@ -1,0 +1,75 @@
+/* .main{
+    margin-bottom: 40px;
+    width: 100%;
+} */
+
+.background {
+    width: 100%;
+    background-image: url('../../Assets/Images/Group 44.png');
+    background-size: 100%; 
+    border-radius: 15px; 
+    height: 50vw;
+    padding: 50px;
+    max-height: 755px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.container {
+    position: relative; /* Позиционируем контейнер относительно фона */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px; 
+}
+
+.slogan {
+    white-space: normal;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 48px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    text-align: center;
+    color: white;
+}
+
+.form {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: auto; /* Измените ширину на auto */
+    gap: 20px;
+    margin-left: auto; /* Сдвигает форму вправо */
+}
+
+.input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6501; 
+    color: white;
+    cursor: pointer;
+    white-space: nowrap; /* Предотвращает перенос текста */
+}
+
+.button:hover {
+    background-color: #ff67019d; 
+}

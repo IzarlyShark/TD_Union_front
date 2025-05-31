@@ -1,0 +1,75 @@
+.header {
+    background-color: #12427C;
+    width: 100%;
+    padding: 10px 40px; 
+}
+
+.header * {
+    color: white;
+}
+
+.container {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.button {
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.471);
+    color: #12427C;
+}
+
+.logoContainer {
+    padding-top: 10px;
+    position: relative; /* Устанавливаем позицию для псевдоэлемента */
+    display: inline-flex; /* Позволяет изображению и подложке быть в одной линии */
+    /* align-items: center; Вертикальное выравнивание по центру */
+    height: 100%;
+    min-width: 100%;
+    justify-content: center;
+}
+
+.triangle {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-left: 45px solid transparent; /* Левый край треугольника */
+    border-right: 45px solid transparent; /* Правый край треугольника */
+    border-top: 90px solid rgb(255, 255, 255); /* Верхний край треугольника (цвет подложки) */
+    height: 90px;
+    width: 90px;
+}
+
+.logoContainer img {
+    position: relative;
+    z-index: 9999;
+    border-radius: 5px; /* Закругленные углы для изображения */
+    
+    height: 65px;
+}
+.brandName {
+    color: #FF6501; 
+    margin-left: 10px; 
+    white-space: nowrap;
+}

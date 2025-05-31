@@ -1,0 +1,14 @@
+.InputFormContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Icon{
+    min-width: 40px;
+    max-width: 40px;
+}
+
+.label{
+    width: 120px;
+}

@@ -1,0 +1,53 @@
+.content {
+
+}
+
+.container{
+
+  
+}
+
+.flex__container{
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Тень для создания глубины */
+}
+
+.textContent {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 18px; 
+    flex: 1; /* Позволяем тексту занимать доступное пространство */
+    color: #333;
+    line-height: 1.8; /* Увеличение расстояния между строками */
+}
+
+.title {
+    font-size: 28px; 
+    font-weight: 600; 
+    margin-bottom: 10px; 
+}
+
+.companyName {
+    color: #FF6501; 
+    font-weight: 700; 
+}
+
+.image {
+    flex: 0 0 440px; /* Фиксированная ширина для изображения */
+    border-radius: 8px; 
+    transition: transform 0.3s; 
+}
+
+.image:hover {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+.image img {
+    width: 100%; /* Изображение занимает всю ширину контейнера */
+    border-radius: 8px; 
+}

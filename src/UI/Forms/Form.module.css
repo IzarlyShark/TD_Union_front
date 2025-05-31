@@ -1,0 +1,53 @@
+.Form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    min-height: 372px;
+}
+
+.Form input, .Form button{
+    font-size: 16px;
+}
+
+.Form__radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.radio__container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user__container{
+    display: flex;
+    gap: 20px;
+}
+
+.user__input{
+    padding: 13px;
+    border-radius: 6px;
+    outline: none;
+    border: solid 1px silver;
+    box-shadow: none;
+    max-height: 46px;
+}
+
+.user__btn{
+    padding: 13px;
+    border-radius: 6px;
+    border: solid 1px silver;
+    box-shadow: none;
+    color: white;
+    background-color: #FF6501;
+    max-height: 46px;
+}
+
+
+.user__btn:hover {
+    background-color: #aa4501; 
+    
+}

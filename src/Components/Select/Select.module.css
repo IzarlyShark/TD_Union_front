@@ -1,0 +1,7 @@
+.select{
+    border: solid 1px #d4d4d4;
+    min-width: 350px;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
