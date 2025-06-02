@@ -23,3 +23,21 @@ button{
   padding: 0 20px;
   position: relative;
 }
+
+/* Для Chrome, Safari и Edge */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Для Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+[data-slot="indicator"] {
+    /* Ваши стили здесь */
+    display: none !important;
+    background-color: yellow; /* Пример стиля */
+}

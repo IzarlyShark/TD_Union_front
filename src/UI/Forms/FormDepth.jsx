@@ -3,11 +3,11 @@ import InputFormContainer from "../InputFormContainer/InputFormContainer";
 import InputNumber from "../Inputs/InputNumber";
 import cube from '../../Assets/Images/3d.png';
 import pallet from '../../Assets/Images/pallet.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from '../../api';
 
 export default function FormDepth() {
-
+    const [disabled, setDisabled] = useState(false);
     const [value, setValue] = useState({
         squareWarehouse: '',
         heightWarehouse: '',
@@ -18,6 +18,11 @@ export default function FormDepth() {
         userPhone: '',
         userName: '',
     })
+
+    useEffect(() => {
+        setDisabled(value.userName.length === 0 || value.userPhone.length === 0);
+    }, [value])
+    
 
     function handleInput(e) {
         console.log(e.target.value);
@@ -34,6 +39,18 @@ export default function FormDepth() {
         try {
             const res = await api.createOrder(value)
             console.log(res)
+            setValue({
+                squareWarehouse: null,
+                heightWarehouse: null,
+                heightPallet: null,
+                zone: null,
+                weightPallet: null,
+                typePallet: null,
+                widthTransit: null,
+                typeTech: null,
+                userPhone: '',
+                userName: '',
+            })
         } catch (e) {
             console.log(e)
         }
@@ -54,23 +71,23 @@ export default function FormDepth() {
         </InputFormContainer>
         <InputFormContainer label='Тип паллеты' Icon={pallet}>
             <div className={style.Form__radio}>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'FIN'} name="typePallet" /><label>FIN (120*100 см)</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'EURO'} name="typePallet" /><label>EURO (120*80 см)</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'USA'} name="typePallet" /><label>USA (120*120 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} type="radio" checked={value.typePallet === 'FIN'} value={'FIN'} name="typePallet" /><label>FIN (120*100 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} type="radio" checked={value.typePallet === 'EURO'} value={'EURO'} name="typePallet" /><label>EURO (120*80 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} type="radio" checked={value.typePallet === 'USA'} value={'USA'} name="typePallet" /><label>USA (120*120 см)</label></div>
             </div>
         </InputFormContainer>
         <InputFormContainer label='Тип используемой техники' Icon={pallet}>
             <div className={style.Form__radio}>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'Stacker'} name="typeTech" /><label>Ручной штабелер</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'Reach'} name="typeTech" /><label>Ричтрак</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'loader'} name="typeTech" /><label>Погрузчик</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'other'} name="typeTech" /><label>Другое</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'Stacker'}  type="radio" value={'Stacker'} name="typeTech" /><label>Ручной штабелер</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'Reach'}  type="radio" value={'Reach'} name="typeTech" /><label>Ричтрак</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'loader'}  type="radio" value={'loader'} name="typeTech" /><label>Погрузчик</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'other'} type="radio" value={'other'} name="typeTech" /><label>Другое</label></div>
             </div>
         </InputFormContainer>
         <div className={style.user__container}>
             <input type="text" name="userPhone" value={value.userPhone} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите номер телефона"/>
             <input type="text" name="userName" value={value.userName} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите имя"/>
-            <button type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
+            <button disabled={disabled} type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
         </div>
     </div>
 }

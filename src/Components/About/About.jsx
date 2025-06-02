@@ -5,7 +5,7 @@ import warehouse from '../../Assets/Images/warehouse.png';
 
 const About = () => {
   return (
-    <div className={styles.content}>
+    <div className={styles.content} id='about'>
       <div className={`${styles.container} content`}>
         <div className={styles.flex__container}>
 

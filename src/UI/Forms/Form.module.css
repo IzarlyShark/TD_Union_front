@@ -34,7 +34,7 @@
     border: solid 1px silver;
     box-shadow: none;
     max-height: 46px;
-}
+}   
 
 .user__btn{
     padding: 13px;
@@ -47,7 +47,7 @@
 }
 
 
-.user__btn:hover {
-    background-color: #aa4501; 
+.user__btn:disabled {
+    background-color: #ccc;
     
 }

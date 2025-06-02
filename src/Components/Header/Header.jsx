@@ -7,6 +7,7 @@ import {
   NavbarItem,
   Button,
 } from "@heroui/react";
+import { useEffect, useState, useRef } from "react";
 
 export const AcmeLogo = () => {
   return (
@@ -23,8 +24,29 @@ export const AcmeLogo = () => {
 };
 
 export default function Header() {
+  const ref = useRef();
+  const [calc, setCalc] = useState();
+  const [about, setAbout] = useState();
+  const [home, setHome] = useState();
+
+  useEffect(() => {
+    setCalc(document.querySelector('#calc'))
+    setAbout(document.querySelector('#about'))
+    setHome(document.querySelector('#home'))
+  }, [ref]);
+
+   function handleNavigate (item) {
+    if(item === 'calc'){
+      calc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if(item === 'about'){
+      about.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (item === 'home') {
+      home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   return (
-    <div className={style.header}>
+    <div className={style.header} ref={ref}>
       <div className={`${style.container} content`}>
         <Navbar isBordered>
           <NavbarContent justify="start" className={style.container}>
@@ -34,17 +56,17 @@ export default function Header() {
             </NavbarBrand>
             <NavbarContent className={`${style.nav} hidden sm:flex gap-3`}>
               <NavbarItem>
-                <Button className={style.button} onClick={() => scrollToSection('home')}>
+                <Button className={style.button} onClick={() => handleNavigate('home')}>
                   Главная
                 </Button>
               </NavbarItem>
               <NavbarItem>
-                <Button className={style.button} onClick={() => scrollToSection('about')}>
+                <Button className={style.button} onClick={() => handleNavigate('about')}>
                   О нас
                 </Button>
               </NavbarItem>
               <NavbarItem>
-                <Button className={style.button} onClick={() => scrollToSection('calculator')}>
+                <Button className={style.button} onClick={() => handleNavigate('calc')}>
                   Калькулятор
                 </Button>
               </NavbarItem>
@@ -56,7 +78,4 @@ export default function Header() {
   );
 }
 
-// Функция для прокрутки к секциям
-const scrollToSection = (sectionId) => {
-  // тут логика
-};
+

@@ -6,12 +6,12 @@ import height from '../../Assets/Images/height.png'
 import truck from '../../Assets/Images/truck.png'
 import pallet from '../../Assets/Images/pallet.png'
 import height1 from '../../Assets/Images/height1.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../../api";
 
 export default function FormFrontal () {
-
-      const [value, setValue] = useState({
+    const [disabled, setDisabled] = useState(false);
+    const [value, setValue] = useState({
         squareWarehouse: null,
         heightWarehouse: null,
         heightPallet: null,
@@ -23,6 +23,11 @@ export default function FormFrontal () {
         userPhone: '',
         userName: '',
     })
+
+    useEffect(() => {
+        setDisabled(value.userName.length === 0 || value.userPhone.length === 0);
+    }, [value])
+
 
     function handleInput(e) {
         setValue({...value, [e.target.name] : e.target.value})
@@ -37,6 +42,18 @@ export default function FormFrontal () {
         try {
             const res = await api.createOrder(value)
             console.log(res)
+            setValue({
+                squareWarehouse: null,
+                heightWarehouse: null,
+                heightPallet: null,
+                zone: null,
+                weightPallet: null,
+                typePallet: null,
+                widthTransit: null,
+                typeTech: null,
+                userPhone: '',
+                userName: '',
+            })
         } catch (e) {
             console.log(e)
         }
@@ -60,29 +77,29 @@ export default function FormFrontal () {
         </InputFormContainer>
         <InputFormContainer label='Тип паллеты' Icon={pallet}>
             <div className={style.Form__radio}>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'FIN'} name="typePallet" /><label>FIN (120*100 см)</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'EURO'} name="typePallet" /><label>EURO (120*80 см)</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'USA'} name="typePallet" /><label>USA (120*120 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typePallet === 'FIN'} type="radio" value={'FIN'} name="typePallet" /><label>FIN (120*100 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typePallet === 'EURO'} type="radio" value={'EURO'} name="typePallet" /><label>EURO (120*80 см)</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typePallet === 'USA'} type="radio" value={'USA'} name="typePallet" /><label>USA (120*120 см)</label></div>
             </div>
         </InputFormContainer>
         <InputFormContainer label='Проезды для техники' Icon={height1}>
             <div className={style.Form__radio}>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'2.5м-2.9м'} name="widthTransit" /><label>от 2.5м до 2.9м</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'3м-3.2м'} name="widthTransit" /><label>от 3м до 3.2м</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'>3.3м'} name="widthTransit" /><label>более 3.3м</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.widthTransit === '2.5м-2.9м'} type="radio" value={'2.5м-2.9м'} name="widthTransit" /><label>от 2.5м до 2.9м</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.widthTransit === '3м-3.2м'} type="radio" value={'3м-3.2м'} name="widthTransit" /><label>от 3м до 3.2м</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.widthTransit === '>3.3м'} type="radio" value={'>3.3м'} name="widthTransit" /><label>более 3.3м</label></div>
             </div>
         </InputFormContainer>
         <InputFormContainer label='Тип используемой техники' Icon={truck}>
             <div className={style.Form__radio}>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'Stacker'} name="typeTech" /><label>Ручной штабелер</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'Reach '} name="typeTech" /><label>Ричтрак</label></div>
-                <div className={style.radio__container}><input onChange={handleRadio} type="radio" value={'loader'} name="typeTech" /><label>Погрузчик</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'Stacker'} type="radio" value={'Stacker'} name="typeTech" /><label>Ручной штабелер</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'Reach'} type="radio" value={'Reach '} name="typeTech" /><label>Ричтрак</label></div>
+                <div className={style.radio__container}><input onChange={handleRadio} checked={value.typeTech === 'loader'} type="radio" value={'loader'} name="typeTech" /><label>Погрузчик</label></div>
             </div>
         </InputFormContainer>
         <div className={style.user__container}>
             <input type="text" name="userPhone" value={value.userPhone} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите номер телефона"/>
             <input type="text" name="userName" value={value.userName} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите имя"/>
-            <button type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
+            <button disabled={disabled} type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
         </div>
     </div>
 }

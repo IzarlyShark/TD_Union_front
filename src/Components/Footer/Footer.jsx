@@ -3,11 +3,20 @@ import style from './Footer.module.css';
 import { useDispatch } from 'react-redux';
 import { options } from '../../Utils/options';
 import { setServiceActiveTag } from '../../Redux/Slices/Services/Services';
+import { setFormType } from "../../Redux/Slices/Calc";
 
 const Footer = () => {
   const ref = useRef();
   const [servise, setServise] = useState();
-  useEffect(() => setServise(document.querySelector('#services')), [ref]);
+  const [calc, setCalc] = useState();
+  const [about, setAbout] = useState();
+  const [home, setHome] = useState();
+  useEffect(() => {
+    setServise(document.querySelector('#services'))
+    setCalc(document.querySelector('#calc'))
+    setAbout(document.querySelector('#about'))
+    setHome(document.querySelector('#home'))
+  }, [ref]);
   const dispatch = useDispatch();
 
   function handleClick(item) {
@@ -20,6 +29,26 @@ const Footer = () => {
     servise.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  function handleClickCalc(item) {
+    if (item) {
+      dispatch(setFormType(item));
+    } else {
+      dispatch(setFormType(null));
+    }
+    if (!calc) return;
+    calc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function handleNavigate (item) {
+    if(item === 'calc'){
+      calc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if(item === 'about'){
+      about.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (item === 'home') {
+      home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   return (
     <footer className={style.footer} ref={ref}>
       <div className={`${style.footerContent} content`}>
@@ -28,22 +57,22 @@ const Footer = () => {
           <div className={style.footerColumn}>
             <h3>Навигация</h3>
             <ul>
-              <li><button onClick={() => handleClick('home')}>Главная</button></li>
-              <li><button onClick={() => handleClick('about')}>О нас</button></li>
-              <li><button onClick={() => handleClick('calculator')}>Калькулятор</button></li>
+              <li><button onClick={() => handleNavigate('home')}>Главная</button></li>
+              <li><button onClick={() => handleNavigate('about')}>О нас</button></li>
+              <li><button onClick={() => handleNavigate('calc')}>Калькулятор</button></li>
             </ul>
           </div>
           {/* Колонка "Стеллажи" */}
           <div className={style.footerColumn}>
             <h3>Стеллажи</h3>
             <ul>
-              <li><button onClick={() => handleClick('front')}>Фронтальные</button></li>
-              <li><button onClick={() => handleClick('pallet')}>Паллетные</button></li>
-              <li><button onClick={() => handleClick('deep')}>Глубинные</button></li>
-              <li><button onClick={() => handleClick('knockdown')}>Набивные</button></li>
+              <li><button onClick={() => handleClickCalc('front')}>Фронтальные</button></li>
+              <li><button onClick={() => handleClickCalc('pallet')}>Паллетные</button></li>
+              <li><button onClick={() => handleClickCalc('depth')}>Глубинные</button></li>
+              {/* <li><button onClick={() => handleClick('knockdown')}>Набивные</button></li>
               <li><button onClick={() => handleClick('shelf')}>Полочные</button></li>
               <li><button onClick={() => handleClick('mezzanine')}>Мезонинные</button></li>
-              <li><button onClick={() => handleClick('consoles')}>Консольные</button></li>
+              <li><button onClick={() => handleClick('consoles')}>Консольные</button></li> */}
             </ul>
           </div>
           {/* Колонка "Услуги" */}

@@ -3,17 +3,20 @@ import { useState } from "react";
 import FormPallet from "../../UI/Forms/FormPallet";
 import FormFrontal from "../../UI/Forms/FormFrontal";
 import FormDepth from "../../UI/Forms/FormDepth";
+import { useDispatch, useSelector } from "react-redux";
+import { setFormType } from "../../Redux/Slices/Calc";
 
 export default function Calc() {
-    const [formType, setFormType] = useState('pallet')
+    const dispatch = useDispatch()
+    const formType = useSelector(state => state.calc.formType)
 
-    return <div className={style.calc}>
+    return <div className={style.calc} id="calc">
         <div className={`${style.container} content`}>
             <h1>Калькулятор стеллажей</h1>
             <nav className={style.nav}>
-                <button className={`${style.nav__btn} ${formType === 'pallet' && style.active}`} onClick={() => setFormType('pallet')}>Паллетные</button>
-                <button className={`${style.nav__btn} ${formType === 'front' && style.active}`} onClick={() => setFormType('front')}>Фронтальные</button>
-                <button className={`${style.nav__btn} ${formType === 'depth' && style.active}`} onClick={() => setFormType('depth')}>Глубинные</button>
+                <button className={`${style.nav__btn} ${formType === 'pallet' && style.active}`} onClick={() => dispatch(setFormType('pallet'))}>Паллетные</button>
+                <button className={`${style.nav__btn} ${formType === 'front' && style.active}`} onClick={() => dispatch(setFormType('front'))}>Фронтальные</button>
+                <button className={`${style.nav__btn} ${formType === 'depth' && style.active}`} onClick={() => dispatch(setFormType('depth'))}>Глубинные</button>
             </nav>
             {formType === 'pallet' && <FormPallet />}
             {formType === 'front' && <FormFrontal />}
