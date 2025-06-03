@@ -51,3 +51,15 @@
     width: 100%; /* Изображение занимает всю ширину контейнера */
     border-radius: 8px; 
 }
+
+@media (max-width: 1200px) {
+    .flex__container{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .image{
+        flex: 0 0 auto;
+    }
+    
+}

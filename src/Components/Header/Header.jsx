@@ -16,8 +16,6 @@ export const AcmeLogo = () => {
           <img 
               src={logo} 
               alt="Acme Logo" 
-              // height="36" 
-              // width="36" 
           />
       </div>
   );

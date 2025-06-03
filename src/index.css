@@ -41,3 +41,9 @@ input[type=number] {
     display: none !important;
     background-color: yellow; /* Пример стиля */
 }
+
+@media (max-width: 500px) {
+    *{
+      font-size: 0.9rem !important;
+    }
+}

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     gap: 40px;
     min-height: 372px;
+    position: relative;
 }
 
 .Form input, .Form button{
@@ -50,4 +51,21 @@
 .user__btn:disabled {
     background-color: #ccc;
     
+}
+
+@media (max-width: 900px) {
+    .Form{
+        gap: 10px;
+    }
+    .user__container{
+        flex-wrap: wrap;
+    }
+
+    .user__input{
+        width: 100%;
+    }
+
+    .user__btn{
+        width: 100%;
+    }
 }

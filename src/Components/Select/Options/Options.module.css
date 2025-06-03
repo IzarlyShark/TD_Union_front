@@ -28,3 +28,9 @@
     background-color: #FF6501;
     color: white;
 }
+
+@media (max-width: 900px) {
+    .options{
+        top: auto;
+    }
+}

@@ -8,8 +8,10 @@ import pallet from '../../Assets/Images/pallet.png'
 import height1 from '../../Assets/Images/height1.png'
 import { useEffect, useState } from "react";
 import { api } from "../../api";
+import Preloader from "../../Components/Preloader/Preloader";
 
 export default function FormPallet() {
+    const [loading, setLoading] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const [value, setValue] = useState({
         squareWarehouse: null,
@@ -38,6 +40,7 @@ export default function FormPallet() {
 
     async function handleSubmit(e) {
          e.preventDefault();
+         setLoading(true);
          try {
              const res = await api.createOrder(value)
              console.log(res)
@@ -53,12 +56,17 @@ export default function FormPallet() {
                 userPhone: '',
                 userName: '',
             })
+            setDisabled(false);
+            alert('Заявка отправлена!, мы свяжемся с вами в ближайшее время!')
          } catch (e) {
              console.log(e)
+             setLoading(false);
          }
+         setLoading(false);
      }
 
     return <form onSubmit={handleSubmit} className={style.Form}>
+        {loading && <Preloader />}
         <InputFormContainer label='Площадь склада (м²)' Icon={cube}>
             <InputNumber name={'squareWarehouse'} value={value.squareWarehouse} handleInput={handleInput} />
         </InputFormContainer>

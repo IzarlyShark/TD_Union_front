@@ -73,3 +73,29 @@
     margin-left: 10px; 
     white-space: nowrap;
 }
+
+
+@media (max-width: 900px) {
+    .header{
+        padding: 10px;
+    }
+    .brandName{
+        display: none;
+    }
+
+    .logoContainer{
+        min-width: 90px;
+    }
+
+    .container{
+        padding: 0;
+    }
+
+    .nav{
+        gap: 20px;
+    }
+
+    .button{
+        padding: 0;
+    }
+}

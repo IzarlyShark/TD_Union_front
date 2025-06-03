@@ -12,3 +12,9 @@
 .label{
     width: 120px;
 }
+
+@media (max-width: 900px) {
+    .InputFormContainer{
+        gap: 5px;
+    }
+}

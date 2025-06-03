@@ -112,3 +112,22 @@
 .footerSocial a:hover {
     color: #c7c3c3; 
 }
+
+
+@media (max-width: 900px) {
+    .footerContent {
+        flex-direction: column;
+    }
+    .footerColumns {
+        flex-direction: column;
+    }
+    .footerColumn {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .footerContact {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+}

@@ -74,3 +74,50 @@
     background-color: #ccc;
 }
 
+
+@media (max-width: 900px) {
+    .container{
+        padding: 5px;
+    }
+    .background{
+        padding: 10px;
+        gap: 10px;
+        justify-content: space-between;
+        padding-top: 90px;
+        /* height: auto; */
+    }
+    .form{
+        position: static;
+        gap: 10px;
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+        margin: auto;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .button{
+        width: 100%;
+    }
+
+    .input{
+        margin: 0;
+        width: 100%;
+
+    }
+}
+
+
+@media (max-width: 550px) {
+    .background{
+        padding-top: 70px;
+        height: auto;      
+    }
+    .slogan{
+        font-size: 0.9rem;
+    }
+    .form{
+        width: 100%;
+    }
+}

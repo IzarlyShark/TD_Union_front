@@ -5,9 +5,11 @@ import cube from '../../Assets/Images/3d.png';
 import pallet from '../../Assets/Images/pallet.png'
 import { useState, useEffect } from "react";
 import { api } from '../../api';
+import Preloader from '../../Components/Preloader/Preloader';
 
 export default function FormDepth() {
     const [disabled, setDisabled] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [value, setValue] = useState({
         squareWarehouse: '',
         heightWarehouse: '',
@@ -36,6 +38,7 @@ export default function FormDepth() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true);
         try {
             const res = await api.createOrder(value)
             console.log(res)
@@ -51,12 +54,17 @@ export default function FormDepth() {
                 userPhone: '',
                 userName: '',
             })
+            setLoading(false);
+            alert('Заявка отправлена!, мы свяжемся с вами в ближайшее время!')
         } catch (e) {
             console.log(e)
+            setLoading(false);
         }
+        setLoading(false);
     }
 
     return <div className={style.Form} onSubmit={handleSubmit}>
+        {loading && <Preloader />}
         <InputFormContainer label='Площадь склада (м²)' Icon={cube}>
             <InputNumber name={'squareWarehouse'} value={value.squareWarehouse} handleInput={handleInput} />
         </InputFormContainer>
