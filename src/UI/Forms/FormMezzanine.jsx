@@ -1,5 +1,7 @@
 import style from './Form.module.css';
 import InputFormContainer from "../InputFormContainer/InputFormContainer";
+import InputPhoneNumber from "../Inputs/inputPhoneNumber";
+
 import InputNumber from "../Inputs/InputNumber";
 import cube from '../../Assets/Images/3d.png';
 import height from '../../Assets/Images/height.png';
@@ -99,30 +101,31 @@ export default function FormMezzanine() {
             <InputFormContainer label='Вес единицы хранения товара (кг)' Icon={pallet}>
                 <InputNumber name={'weightPerUnit'} value={value.weightPerUnit} handleInput={handleInput} />
             </InputFormContainer>
-                            <InputFormContainer label='Габариты единицы товара' Icon={height}>
-                    <input type="text" name="dimensions" value={value.dimensions} onChange={handleInput} className={style.user__input} />
-                </InputFormContainer>
-                <InputFormContainer label='Тип используемой техники' Icon={truck}>
-                    <div className={style.Form__radio}>
-                        <div className={style.radio__container}>
-                            <input onChange={handleRadio} checked={value.typeTech === 'Тележка'} type="radio" value={'Тележка'} name="typeTech" />
-                            <label>Тележка</label>
-                        </div>
-                        <div className={style.radio__container}>
-                            <input onChange={handleRadio} checked={value.typeTech === 'Рохля'} type="radio" value={'Рохля'} name="typeTech" />
-                            <label>Рохля</label>
-                        </div>
-                        <div className={style.radio__container}>
-                            <input onChange={handleRadio} checked={value.typeTech === 'Другое'} type="radio" value={'Другое'} name="typeTech" />
-                            <label>Другое</label>
-                        </div>
+            <InputFormContainer label='Габариты единицы товара (мм)' Icon={height}>
+                <InputNumber name={'dimensions'} value={value.dimensions} handleInput={handleInput} placeholder='2700-100-50-1,5' />
+                {/* <input type="text" name="dimensions" value={value.dimensions} onChange={handleInput} className={style.user__input} /> */}
+            </InputFormContainer>
+            <InputFormContainer label='Тип используемой техники' Icon={truck}>
+                <div className={style.Form__radio}>
+                    <div className={style.radio__container}>
+                        <input onChange={handleRadio} checked={value.typeTech === 'Тележка'} type="radio" value={'Тележка'} name="typeTech" />
+                        <label>Тележка</label>
                     </div>
-                </InputFormContainer>
-                <div className={style.user__container}>
-                    <input type="text" name="userPhone" value={value.userPhone} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите номер телефона" />
-                    <input type="text" name="userName" value={value.userName} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите имя" />
-                    <button disabled={disabled} type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
+                    <div className={style.radio__container}>
+                        <input onChange={handleRadio} checked={value.typeTech === 'Рохля'} type="radio" value={'Рохля'} name="typeTech" />
+                        <label>Рохля</label>
+                    </div>
+                    <div className={style.radio__container}>
+                        <input onChange={handleRadio} checked={value.typeTech === 'Другое'} type="radio" value={'Другое'} name="typeTech" />
+                        <label>Другое</label>
+                    </div>
                 </div>
+            </InputFormContainer>
+            <div className={style.user__container}>
+                <InputPhoneNumber name="userPhone" value={value.userPhone} handleInput={handleInput} placeholder="Введите номер телефона"/>
+                <input type="text" name="userName" value={value.userName} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите имя" />
+                <button disabled={disabled} type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
+            </div>
             </div>
         );
 }

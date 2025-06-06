@@ -9,8 +9,8 @@ export default function RackTypes() {
   return (
     <div className={`${style.accordion}`}>
       <div className={" content"}>
-        <div className={style.content}>
-            <Accordion>
+        <div className={style.content}> 
+            <Accordion defaultExpandedKeys={['1']}>
               <AccordionItem key="1" className={style.accordion__item} aria-label="Консольные стеллажи" title={<div className={style.accordion__title}>Консольные стеллажи</div>}>
                 <div className={style.accordion__content}>
                   <img src={consolePallet} alt="Консольные стеллажи" />

@@ -1,5 +1,6 @@
 import style from "./Form.module.css";
 import InputFormContainer from "../InputFormContainer/InputFormContainer";
+import InputPhoneNumber from "../Inputs/inputPhoneNumber";
 import InputNumber from "../Inputs/InputNumber";
 import cube from '../../Assets/Images/3d.png';
 import height from '../../Assets/Images/height.png';
@@ -94,7 +95,7 @@ export default function FormShelves() {
                 </div>
             </InputFormContainer>
             <div className={style.user__container}>
-                <input type="number" name="userPhone" value={value.userPhone} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите номер телефона" />
+                <InputPhoneNumber name="userPhone" value={value.userPhone} handleInput={handleInput} placeholder="Введите номер телефона"/>
                 <input type="text" name="userName" value={value.userName} onChange={(e) => handleInput(e)} className={style.user__input} placeholder="Введите имя" />
                 <button disabled={disabled} type="submit" className={style.user__btn}>Получить расчеты в WhatsApp</button>
             </div>
