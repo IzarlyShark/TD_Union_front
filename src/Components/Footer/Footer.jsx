@@ -69,9 +69,11 @@ const Footer = () => {
               <li><button onClick={() => handleClickCalc('front')}>Фронтальные</button></li>
               <li><button onClick={() => handleClickCalc('pallet')}>Паллетные</button></li>
               <li><button onClick={() => handleClickCalc('depth')}>Глубинные</button></li>
+              <li><button onClick={() => handleClickCalc('shelves')}>Полочные</button></li>
+              <li><button onClick={() => handleClickCalc('mezzanine')}>Мезонинные</button></li>
+
+
               {/* <li><button onClick={() => handleClick('knockdown')}>Набивные</button></li>
-              <li><button onClick={() => handleClick('shelf')}>Полочные</button></li>
-              <li><button onClick={() => handleClick('mezzanine')}>Мезонинные</button></li>
               <li><button onClick={() => handleClick('consoles')}>Консольные</button></li> */}
             </ul>
           </div>
