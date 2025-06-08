@@ -1,0 +1,27 @@
+.marqueeContainer {
+  overflow: hidden; /* Скрываем переполнение */
+  white-space: nowrap; /* Запрещаем перенос строк */
+  background-color: #1d36b2; /* Цвет фона */
+  padding: 10px 0; /* Отступы сверху и снизу */
+}
+
+.marquee {
+  display: inline-block; /* Делаем элемент строчным блоком */
+  animation: marquee 60s linear infinite; /* Анимация бегущей строки */
+}
+
+.marqueeItem {
+  display: inline-block; /* Делаем элементы строчными блоками */
+  padding: 0 20px; /* Отступы между элементами */
+  color: #f2640e;
+}
+
+/* Анимация бегущей строки */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Начинаем с нуля */
+  }
+  100% {
+    transform: translateX(-50%); /* Заканчиваем на половине ширины */
+  }
+}

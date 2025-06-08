@@ -1,20 +1,19 @@
 .footer {
-    background-image: url('../../Assets/Images/Footer_logo_TD_Union.png');
-    background-size: contain; /* Оставляем cover для сохранения пропорций */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top 0 center;
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    justify-content: flex-start; /* Изменено на flex-start для поднятия фона */
-    align-items: flex-start; 
+    justify-content: flex-start;
+    align-items: flex-start;
     text-align: left;
     color: #ffffff;
     position: relative;
-    padding: 100px 10px 50px; 
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5), -2px 0 10px rgba(0, 0, 0, 0.5); /* Тень по бокам */
-    background-color: #12427C;
+    padding: 100px 10px 50px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5), -2px 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #1d36b2;
 }
 
 .footerContent {
@@ -35,7 +34,6 @@
 
 .footerColumn {
     margin-right: 10px; 
-    /* flex: 1;  */
     white-space: nowrap; 
 }
 
@@ -47,14 +45,15 @@
     margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px; 
-    border-bottom: 2px solid #c7c3c3;
+    /* border-bottom: 2px solid #c7c3c3; */
     padding-bottom: 5px; 
-    display: inline-block; /* Добавлено */
-    width: 50%; /* Установите нужную ширину */
+    display: inline-block; 
+    width: 50%; 
 }
+
 .footerColumn a, .footerColumn button {
     color: #ffffff; 
-    text-decoration: none; 
+    text-decoration: none; /* Убираем стандартное подчеркивание */
     font-family: 'Poppins', sans-serif; 
     font-size: 14px; 
     transition: color 0.3s ease; 
@@ -69,6 +68,22 @@
 .footerColumn ul {
     list-style-type: none; 
     padding-left: 0;
+}
+
+.footerColumn ul li {
+    position: relative; /* Для позиционирования псевдоэлемента */
+    padding-bottom: 5px; /* Отступ снизу для пункта списка */
+}
+
+.footerColumn ul li::after {
+    content: ''; /* Создаем пустой контент для псевдоэлемента */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; /* Начало от левого края */
+    bottom: 0; /* Позиция снизу */
+    width: 100%; /* Ширина на всю ширину элемента */
+    height: 2px; /* Высота линии */
+    background: transparent; /* Фон прозрачный */
+    border-bottom: 1px dotted #c7c3c3; /* Пунктирная линия */
 }
 
 .footerContact {
@@ -97,7 +112,6 @@
     color: #c7c3c3; 
 }
 
-
 .footerSocial {
     display: flex;
     gap: 5px; 
@@ -112,7 +126,6 @@
 .footerSocial a:hover {
     color: #c7c3c3; 
 }
-
 
 @media (max-width: 900px) {
     .footerContent {
@@ -129,5 +142,4 @@
         margin-left: 0;
         text-align: center;
     }
-    
 }

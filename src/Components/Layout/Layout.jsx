@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Marquee from "../Marquee/Marquee";
 
 export default function Layout() {
     const navigate = useNavigate()
@@ -18,7 +19,9 @@ export default function Layout() {
 
     return <div className={style.Layout}>
         <Header />
+        <Marquee />
         <Outlet />
+        <Marquee />
         <Footer />
     </div>
 

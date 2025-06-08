@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'CD Masvol Thin'; /* Имя шрифта, которое вы будете использовать в CSS */
+    src: url('./Assets/fonts/PeridotDemoPE-Light\ —\ копия.otf') format('opentype'); /* Путь к файлу шрифта */
+    font-weight: normal; /* Укажите вес шрифта, если необходимо */
+    font-style: normal; /* Укажите стиль шрифта, если необходимо */
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'CD Masvol Thin', 'Poppins', sans-serif; /* Используйте ваш шрифт */
   text-decoration: none;
 }
 
@@ -20,7 +27,7 @@ button{
 .content{
   max-width: 1268px;
   margin: auto;
-  padding: 0 20px;
+  padding: 20px 20px;
   position: relative;
 }
 

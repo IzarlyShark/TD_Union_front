@@ -5,7 +5,7 @@
 
 .background {
     width: 100%;
-    background-image: url('../../Assets/Images/Group 44.png');
+    background-image: url('../../Assets/Images/mainBackground2.png');
     background-size: 100%; 
     border-radius: 15px; 
     height: 50vw;
@@ -33,17 +33,17 @@
 
 .slogan {
     white-space: normal;
-    font-family: 'Poppins', sans-serif; 
-    font-size: 3vh; 
-    max-width: 900px; 
-    margin: 0 auto; 
+    font-family: 'CD Masvol Thin';
+    font-size: 3vh;
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
-    color: white;
+    color: #ff6500;
 }
 
 .form {
     position: absolute;
-    bottom: 20px;
+    bottom: 60px;
     right: 50px;
     display: flex;
     flex-direction: row;

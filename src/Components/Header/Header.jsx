@@ -46,11 +46,12 @@ export default function Header() {
   return (
     <div className={style.header} ref={ref}>
       <div className={`${style.container} content`}>
+        <AcmeLogo />
         <Navbar isBordered>
           <NavbarContent justify="start" className={style.container}>
             <NavbarBrand style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-              <AcmeLogo />
-              <span className={style.brandName}>ТД Юнион</span>
+              {/* <AcmeLogo /> */}
+              {/* <span className={style.brandName}>ТД Юнион</span> */}
             </NavbarBrand>
             <NavbarContent className={`${style.nav} hidden sm:flex gap-3`}>
               <NavbarItem>
