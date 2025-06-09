@@ -6,6 +6,7 @@ import Calc from "../../Calc/Calc";
 import Services from "../../Services/Services";
 import Advantages from "../../Advantages/Advantages";
 import OurProjects from "../../OurProjects/OurProjects";
+import ClientsPartners from "../../ClientsPartners/ClientsPartners";
 
 export default function Home() {
     return <div className={style.Home}>
@@ -16,5 +17,6 @@ export default function Home() {
         <Calc />
         <RackTypes />
         <OurProjects />
+        <ClientsPartners />
     </div>
 }  
