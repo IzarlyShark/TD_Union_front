@@ -31,4 +31,18 @@
         padding: 10px;
         border-radius: 5px !important;
     }
+
+@media (max-width: 500px) {
+        .nav {
+            display: flex;
+            flex-direction: column; /* Оставьте столбец для меньших экранов */
+            gap: 5px; /* Уменьшите отступ между кнопками */
+        }
+        .nav__btn {
+            padding: 8px; /* Уменьшите отступ для меньших экранов */
+            border-radius: 5px !important;
+            width: 100%; /* Ширина 100% для кнопок */
+            text-align: center; /* Центрируйте текст */
+        }
+    }
 }
