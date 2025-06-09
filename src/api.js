@@ -3,8 +3,8 @@ class Api {
         'Content-Type': 'application/json',
     }
 
-    // url = 'https://td-union-back.onrender.com'
-    url = 'http://localhost:4000'
+    url = 'https://td-union-back.onrender.com'
+    // url = 'http://localhost:4000'
 
     validityResponse (response) {
         try{
