@@ -27,6 +27,10 @@ export default function FormPallet() {
         userName: '',
     })
 
+
+    console.log(value);
+    
+
     useEffect(() => {
         setDisabled(value.userName.length === 0 || value.userPhone.length === 0);
     }, [value])

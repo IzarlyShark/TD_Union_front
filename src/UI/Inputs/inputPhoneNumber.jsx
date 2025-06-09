@@ -11,7 +11,7 @@ export default function InputPhoneNumber({ name, value, handleInput, placeholder
     }, [value]);
 
     useEffect(() => {
-        handleInput({ target: { value: inpValue } });
+        handleInput({ target: { name: 'userPhone', value: inpValue } });
     }, [inpValue]);
 
     function handleChange(e) {
