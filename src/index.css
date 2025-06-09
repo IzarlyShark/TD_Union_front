@@ -16,7 +16,14 @@
   font-family: 'CD Masvol Thin', 'Poppins', sans-serif; /* Используйте ваш шрифт */
   text-decoration: none;
 }
+/* Увеличиваем размер шрифта для h1 и h2 */ 
+h1 {
+    @apply text-4xl font-bold; /* Увеличиваем размер шрифта для h1 */
+}
 
+h2 {
+    @apply text-3xl font-semibold; /* Увеличиваем размер шрифта для h2 */
+}
 button{
   background-color: transparent;
   border: none;

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Marquee from "../Marquee/Marquee";
+import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 
 export default function Layout() {
     const navigate = useNavigate()
@@ -21,6 +22,7 @@ export default function Layout() {
         <Header />
         <Marquee />
         <Outlet />
+        <ScrollToTopButton />
         <Marquee />
         <Footer />
     </div>

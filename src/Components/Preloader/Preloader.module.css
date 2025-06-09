@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(46, 46, 48, 1);
   border-radius: 15px; 
 }
 

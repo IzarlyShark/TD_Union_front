@@ -7,8 +7,30 @@
     display: flex;
     flex-direction: row;    
     gap: 20px;
+    font-size: 20px;
 }
 
+.servise__content {
+    display: flex; /* Используем flexbox для размещения изображения и текста */
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    margin-top: 20px; /* Отступ сверху для контента услуги */
+}
+
+.service__image {
+    margin-right: 20px; /* Отступ между изображением и текстом */
+}
+
+.service__image img {
+    max-width: 150px; /* Ограничиваем ширину изображения */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+.service__description {
+    flex: 1; /* Позволяем тексту занимать оставшееся пространство */
+    font-size: 20px;
+}
+
+/* 
 .servise__content{
     margin-top: 20px;
     max-height: 0px;
@@ -25,4 +47,4 @@
 
 .active{
     max-height: 100%;
-}
+} */

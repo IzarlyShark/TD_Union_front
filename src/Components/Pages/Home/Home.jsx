@@ -5,6 +5,7 @@ import RackTypes from "../../RackTypes/RackTypes";
 import Calc from "../../Calc/Calc";
 import Services from "../../Services/Services";
 import Advantages from "../../Advantages/Advantages";
+import OurProjects from "../../OurProjects/OurProjects";
 
 export default function Home() {
     return <div className={style.Home}>
@@ -13,6 +14,7 @@ export default function Home() {
         <Advantages />
         <Services />
         <Calc />
-        <RackTypes />  
+        <RackTypes />
+        <OurProjects />
     </div>
 }  

@@ -1,0 +1,24 @@
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Убедитесь, что кнопка поверх других элементов */
+}
+
+.button {
+  background-color: #f2640e; /* Цвет фона */
+  color: white; /* Цвет текста */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #1d36b2; /* Цвет фона при наведении */
+}

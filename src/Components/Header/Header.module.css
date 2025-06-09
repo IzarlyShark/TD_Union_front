@@ -15,7 +15,7 @@
 .container {
     display: flex;
     height: 100px;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-around;
 }
 
@@ -27,23 +27,24 @@
 }
 
 .button {
-    background-color: transparent;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Радиальный градиент */
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 15px 20px; /* Увеличены отступы для кнопок */
     color: #2e2e30;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 18px; /* Увеличен размер шрифта */
 }
 
 .button:hover {
     color: #f2640e; /* Цвет текста при наведении */
-    text-shadow: 0 0 5px rgb(6, 26, 244)
+    text-shadow: 0 0 5px rgb(6, 26, 244);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)); /* Изменение градиента при наведении */
 }
 
 .logoContainer {
     position: relative; /* Устанавливаем позицию для псевдоэлемента */
     display: inline-flex; /* Позволяет изображению и подложке быть в одной линии */
-    /* align-items: center; Вертикальное выравнивание по центру */
     height: 100%;
     justify-content: center;
 }
@@ -67,37 +68,37 @@
     position: relative;
     z-index: 9999;
     border-radius: 5px; /* Закругленные углы для изображения */
-    
-    height: 65px;
+    height: 80px;
 }
+
 .brandName {
     color: #FF6501; 
     margin-left: 10px; 
     white-space: nowrap;
 }
 
-
 @media (max-width: 900px) {
-    .header{
+    .header {
         padding: 10px;
     }
-    .brandName{
+    .brandName {
         display: none;
     }
 
-    .logoContainer{
+    .logoContainer {
         min-width: 90px;
     }
 
-    .container{
+    .container {
         padding: 0;
     }
 
-    .nav{
+    .nav {
         gap: 20px;
     }
 
-    .button{
-        padding: 0;
+    .button {
+        padding: 10px; /* Уменьшены отступы для мобильных устройств */
+        font-size: 16px; /* Уменьшен размер шрифта для мобильных устройств */
     }
 }
