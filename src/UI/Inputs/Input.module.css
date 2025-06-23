@@ -11,3 +11,12 @@
     border-radius: 4px;
     max-height: 46px;
 }
+
+/* Медиа-запрос для смартфонов */
+@media (max-width: 768px) {
+    .InputNumber,
+    .InputPhoneNumber {
+        width: 100%; /* Устанавливаем ширину на 100% */
+        max-width: none; /* Убираем ограничение по максимальной ширине */
+    }
+}
